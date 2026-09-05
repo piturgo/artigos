@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflexões Políticas | Por Miltinho</title>
+    <!-- Google Fonts modernas e sofisticadas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --verde-agua: #0d9488;
+            --verde-agua-claro: #f0fdfa;
+            --verde-agua-borda: #ccfbf1;
+            --cinza-borda: #cbd5e1;
+            --cinza-suave: #f8fafc;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-main);
+            line-height: 1.9;
+            margin: 0;
+            padding: 30px 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .article-wrapper {
+            max-width: 820px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--cinza-borda);
+            overflow: hidden;
+        }
+
+        /* Header do Artigo */
+        .article-header {
+            padding: 60px 50px 40px 50px;
+            border-bottom: 1px solid var(--cinza-borda);
+            background: linear-gradient(to bottom, #ffffff, var(--cinza-suave));
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .article-title {
+            font-size: 40px;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 25px 0;
+            line-height: 1.2;
+            letter-spacing: -0.8px;
+        }
+
+        .article-meta {
+            font-size: 15px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .badge-autor {
+            background-color: var(--verde-agua-claro);
+            color: var(--verde-agua);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 13px;
+            border: 1px solid var(--verde-agua-borda);
+        }
+
+        .github-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease;
+            margin-left: auto;
+            font-weight: 600;
+        }
+
+        .github-link:hover {
+            color: var(--verde-agua);
+        }
+
+        /* Corpo do Artigo */
+        .article-body {
+            padding: 60px 50px;
+            font-size: 20px;
+            color: var(--text-main);
+        }
+
+        .article-body p {
+            margin-bottom: 32px;
+        }
+
+        /* Parágrafo inicial em destaque (Lead) */
+        .article-body p.lead {
+            font-size: 24px;
+            font-weight: 600;
+            color: #0f766e;
+            line-height: 1.6;
+            border-left: 6px solid var(--verde-agua);
+            padding-left: 24px;
+            margin-bottom: 45px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-style: normal;
+        }
+
+        /* Destaques intermediários em blocos elegantes */
+        .article-body .highlight-block {
+            font-size: 22px;
+            font-weight: 600;
+            color: #0f172a;
+            line-height: 1.6;
+            background: var(--verde-agua-claro);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px dashed var(--verde-agua);
+            margin: 45px 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-style: normal;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        /* Estilização da Imagem Integrada */
+        .article-image-container {
+            margin: 50px 0;
+            text-align: center;
+            background-color: var(--cinza-suave);
+            border: 1px solid var(--cinza-borda);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .article-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .image-caption {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-top: 15px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-style: italic;
+        }
+
+        /* Caixa estilizada para a lista final de tópicos */
+        .actions-list-box {
+            background-color: var(--cinza-suave);
+            border-left: 6px solid #0f766e;
+            padding: 30px;
+            border-radius: 0 16px 16px 0;
+            margin: 45px 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .actions-list-box p {
+            font-size: 18px;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .actions-list-box ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 17px;
+            color: var(--text-main);
+        }
+
+        .actions-list-box li {
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+
+        /* Rodapé do Artigo */
+        .article-footer {
+            padding: 30px 50px;
+            background-color: var(--cinza-suave);
+            border-top: 1px solid var(--cinza-borda);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-like {
+            background-color: var(--card-bg);
+            color: #e11d48;
+            border: 1px solid var(--cinza-borda);
+        }
+
+        .btn-like:hover {
+            background-color: #fff1f2;
+            border-color: #fecdd3;
+        }
+
+        .btn-share {
+            background-color: var(--verde-agua);
+            color: #ffffff;
+            border: 1px solid var(--verde-agua);
+        }
+
+        .btn-share:hover {
+            background-color: #0f766e;
+        }
+
+        .comment-icon {
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .comment-icon:hover {
+            color: var(--verde-agua);
+        }
+
+        /* Responsividade para Celulares e Tablets */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .article-wrapper {
+                border-radius: 16px;
+            }
+
+            .article-header, .article-body, .article-footer {
+                padding: 30px 20px;
+            }
+
+            .article-title {
+                font-size: 30px;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .github-link {
+                margin-left: 0;
+            }
+
+            .article-body {
+                font-size: 18px;
+            }
+            
+            .article-body p.lead {
+                font-size: 21px;
+            }
+
+            .actions-list-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="article-wrapper">
+        <article>
+            <header class="article-header">
+                <h1 class="article-title">Reflexões e Opiniões 🧠💭</h1>
+                <div class="article-meta">
+                    <span class="badge-autor">Artigo 2</span>
+                    <span>Por <span style="font-weight: 700; color: #0f172a;">Miltinho</span></span>
+                    <span>Hoje</span>
+                    <a href="https://github.com/piturgo" target="_blank" class="github-link">
+                        <i class="fab fa-github"></i>
+                        GitHub /piturgo
+                    </a>
+                </div>
+            </header>
+
+            <div class="article-body">
+                <p class="lead">Ah não tem como ficar quieto não minha gente. 🌪️</p>
+
+                <p>O Ministro André Mendonça é muito cara de pau, junto com a mídia tradicional também. Mas será que a gente aqui somos tão burros assim pra sair engolindo qualquer coisa? 🤔</p>
+
+                <p>A burrice do eleitorado tem limite, tem que ter! Vai ser interessante quando a direita voltar ao poder no Brasil (de forma simbólica na presidência) Até porque cada vez menos um Presidente consegue exercer autoridade nesse nosso Brasil. 🏛️📉</p>
+
+                <p>Uma coisa que me deixa puto é colocaram Deus no meio de política, na boa, de bondosos esse povo de igreja não tem nada! Costumo perceber que os Ateus tem mais bondade no coração do que estes que se dizem religiosos. Aliás que povo soberbo em sua grande maioria, sempre arrotando virtudes, mas por trás amam dinheiro e libertinagens. ⛪🚫</p>
+
+                <p>Aliás dinheiro e libertinagem são ótimos e não precisa desse malabarismo todo de se mostrar santo pra sociedade através das igrejas. Para com isso gente. Melhorem por favor. 💸✨</p>
+
+                <p>Às vezes um cara que se diz ateu, tem mais virtudes com o seu semelhante do que essa gente. Crente é um saco pessoal ! E falando nisso tem o Ministro Terrivelmente Evangélico (André Mendonça) que não economiza nesse discursinho raso e gasto, parece que andou até fazendo videozinho pedindo orações. Ah faça o favor… Amante comprovado de dinheiro.. ele e sua turma…. Fica usando do artifício de vazamentos seletivos com relação aos casos do INSS e Banco Master que esse mesmo ministro André Mendonça é relator. 🕵️‍♂️💵</p>
+
+                <p>Antes de ir para o STF esse terrivelmente evangê foi ministro da Justiça e Segurança Pública no governo de Jair e ele fez um brilhante trabalho perseguindo pessoas que eram criticas ao governo da época. Lembram do caso do pequi ruído? 🔍</p>
+
+                <p><a href="https://noticias.uol.com.br/colunas/rubens-valente/2021/03/17/ministro-justica-determina-investigacao-contra-criticos-bolsonaro.htm" target="_blank" style="color: var(--verde-agua); font-weight: 600; text-decoration: underline;">https://noticias.uol.com.br/colunas/rubens-valente/2021/03/17/ministro-justica-determina-investigacao-contra-criticos-bolsonaro.htm</a></p>
+
+                <!-- Imagem do Pequi Inserida -->
+                <div class="article-image-container">
+                    <img src="pequi.jpg" alt="Outdoors do caso pequi ruído" class="article-image">
+                    <p class="image-caption">Registro relacionado ao caso.</p>
+                </div>
+
+                <p>Isso porque a direita (diarreia) é defensora da Liberdade de expressão, né ?! 🤡</p>
+
+                <div class="highlight-block">
+                    Grandes idiotas. 🛑
+                </div>
+
+                <p>Acorde eleitorado!!! 🚨</p>
+
+                <!-- Bloco com o texto original da lista -->
+                <div class="actions-list-box">
+                    <p>Aqui está a lista direta e objetiva das ações contestadas de André Mendonça enquanto ministro da Justiça:</p>
+                    <ul>
+                        <li>Produção do "Dossiê Antifascista" com dados sigilosos de 579 servidores e intelectuais opositores.</li>
+                        <li>Abertura de inquérito contra o cartunista Renato Aroeira e o jornalista Ricardo Noblat por causa de uma charge sobre a pandemia.</li>
+                        <li>Investigação com base na Lei de Segurança Nacional (LSN) contra o colunista Hélio Schwartsman devido a um artigo de opinião.</li>
+                        <li>Enquadramento de Guilherme Boulos na LSN por postagens críticas em redes sociais.</li>
+                        <li>Uso da LSN contra manifestantes em Brasília que portavam faixa com os dizeres "Bolsonaro Genocida".</li>
+                        <li>Pedido de investigação contra o influenciador Felipe Neto pelo uso do termo "genocida" em referência à gestão da saúde.</li>
+                        <li>Inquérito contra o sociólogo e o empresário do Tocantins pela instalação dos outdoors do "pequi roído".</li>
+                    </ul>
+                </div>
+            </div>
+
+            <footer class="article-footer">
+                <div class="social-buttons">
+                    <button class="btn btn-like">
+                        <i class="fas fa-heart"></i>
+                        Amei! ❤️
+                    </button>
+                    <button class="btn btn-share">
+                        <i class="fas fa-share-alt"></i>
+                        Compartilhar 🔗
+                    </button>
+                </div>
+                <div class="comments-section">
+                    <i class="fas fa-comment-dots comment-icon fa-xl" title="Comentários"></i>
+                </div>
+            </footer>
+        </article>
+    </div>
+
+</body>
+</html>
