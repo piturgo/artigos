@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reflexões Políticas | Por Miltinho</title>
+    <title>Reflexões e Opiniões | Por Miltinho</title>
     <!-- Google Fonts modernas e sofisticadas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -165,7 +165,7 @@
             font-style: italic;
         }
 
-        /* Caixa estilizada para a lista final de tópicos */
+        /* Bloco com o texto original da lista */
         .actions-list-box {
             background-color: var(--cinza-suave);
             border-left: 6px solid #0f766e;
@@ -195,64 +195,37 @@
             line-height: 1.6;
         }
 
-        /* Rodapé do Artigo */
-        .article-footer {
-            padding: 30px 50px;
+        /* Seção de Comentários Bem Grande */
+        .comments-section {
+            padding: 60px 50px;
             background-color: var(--cinza-suave);
-            border-top: 1px solid var(--cinza-borda);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            border-top: 2px solid var(--cinza-borda);
+        }
+
+        .comments-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .social-buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 12px 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 700;
+            font-size: 28px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.2s ease;
-            cursor: pointer;
+            gap: 12px;
         }
 
-        .btn-like {
-            background-color: var(--card-bg);
-            color: #e11d48;
-            border: 1px solid var(--cinza-borda);
-        }
-
-        .btn-like:hover {
-            background-color: #fff1f2;
-            border-color: #fecdd3;
-        }
-
-        .btn-share {
-            background-color: var(--verde-agua);
-            color: #ffffff;
-            border: 1px solid var(--verde-agua);
-        }
-
-        .btn-share:hover {
-            background-color: #0f766e;
-        }
-
-        .comment-icon {
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: color 0.2s ease;
-        }
-
-        .comment-icon:hover {
+        .comments-title i {
             color: var(--verde-agua);
+        }
+
+        /* Rodapé Minimalista */
+        .article-footer {
+            padding: 25px 50px;
+            background-color: #ffffff;
+            border-top: 1px solid var(--cinza-borda);
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            color: var(--text-muted);
         }
 
         /* Responsividade para Celulares e Tablets */
@@ -265,7 +238,7 @@
                 border-radius: 16px;
             }
 
-            .article-header, .article-body, .article-footer {
+            .article-header, .article-body, .comments-section, .article-footer {
                 padding: 30px 20px;
             }
 
@@ -293,6 +266,10 @@
 
             .actions-list-box {
                 padding: 20px;
+            }
+
+            .comments-title {
+                font-size: 22px;
             }
         }
     </style>
@@ -360,20 +337,29 @@
                 </div>
             </div>
 
+            <!-- Seção de Comentários do Disqus Bem Grande -->
+            <section class="comments-section">
+                <h3 class="comments-title">
+                    <i class="fas id-card fas fa-comments"></i> Deixe seu comentário / Debate
+                </h3>
+                <div id="disqus_thread"></div>
+                <script>
+                    var disqus_config = function () {
+                        this.page.url = window.location.href;  
+                        this.page.identifier = window.location.pathname; 
+                    };
+                    (function() { 
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://SEU-SHORTNAME-DO-DISQUS.disqus.com/embed.js'; // Substitua SEU-SHORTNAME pelo seu nome de usuário do Disqus
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.appendChild(s));
+                    })();
+                </script>
+                <noscript>Por favor, ative o JavaScript para visualizar os <a href="https://disqus.com/?ref_noscript">comentários do Disqus.</a></noscript>
+            </section>
+
             <footer class="article-footer">
-                <div class="social-buttons">
-                    <button class="btn btn-like">
-                        <i class="fas fa-heart"></i>
-                        Amei! ❤️
-                    </button>
-                    <button class="btn btn-share">
-                        <i class="fas fa-share-alt"></i>
-                        Compartilhar 🔗
-                    </button>
-                </div>
-                <div class="comments-section">
-                    <i class="fas fa-comment-dots comment-icon fa-xl" title="Comentários"></i>
-                </div>
+                <p>Artigo publicado por Miltinho • Hospedado no GitHub Pages (<a href="https://github.com/piturgo" target="_blank" style="color: var(--verde-agua); text-decoration: none; font-weight: 600;">/piturgo</a>)</p>
             </footer>
         </article>
     </div>
