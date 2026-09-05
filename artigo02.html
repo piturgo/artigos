@@ -195,7 +195,7 @@
             line-height: 1.6;
         }
 
-        /* Seção de Comentários Bem Grande */
+        /* Seção de Comentários do Giscus */
         .comments-section {
             padding: 60px 50px;
             background-color: var(--cinza-suave);
@@ -337,25 +337,27 @@
                 </div>
             </div>
 
-            <!-- Seção de Comentários do Disqus Configurada -->
+            <!-- Seção de Comentários do Giscus -->
             <section class="comments-section">
                 <h3 class="comments-title">
-                    <i class="fas fa-comments"></i> Deixe seu comentário / Debate
+                    <i class="fas fa-comments"></i> Debate e Comentários
                 </h3>
-                <div id="disqus_thread"></div>
-                <script>
-                    var disqus_config = function () {
-                        this.page.url = window.location.href;  
-                        this.page.identifier = window.location.pathname; 
-                    };
-                    (function() { 
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://disqus_fjflk8mm9m.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.appendChild(s));
-                    })();
+                <script src="https://giscus.app/client.js"
+                        data-repo="piturgo/artigos"
+                        data-repo-id="R_kgDOUNhDGg"
+                        data-category="General"
+                        data-category-id="DIC_kwDOUNhDGs4C-XYZ"
+                        data-mapping="specific"
+                        data-term="Comentários"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="pt"
+                        crossorigin="anonymous"
+                        async>
                 </script>
-                <noscript>Por favor, ative o JavaScript para visualizar os <a href="https://disqus.com/?ref_noscript">comentários do Disqus.</a></noscript>
             </section>
 
             <footer class="article-footer">
